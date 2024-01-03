@@ -10,11 +10,11 @@ public class ManageDeliveryBoyTest extends Base{
 	ManageDeliveryBoyPage manageDeliveryBoyPage;
 	
 	
-	@Test
+	@Test(groups = "smoke")
 	public void launchManageDeliveryBoy() {
 		manageDeliveryBoyPage=new ManageDeliveryBoyPage(driver);
 		manageDeliveryBoyPage.launchManageDeliveryBoy();
-		manageDeliveryBoyPage.editDeliveryBoy("client29/12/2023 11:41:58");
+		manageDeliveryBoyPage.editDeliveryBoy("Shameer123");
 	}
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="ParellelSuite" thread-count="5" parallel="tests"> <!-- parallel-test to run multiple test parallely, parallel=class to run classes parallely -->
+	<listeners>
+	<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="SmokeTest_TC1"> <!-- add test name such as RT, sanity -->
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class> <!-- pakagename.classname -->
+			<class name ="com.sevenrmartsupermarket.tests.PushNotificationsTest"></class>
+		</classes>
+	</test>
+	<test name="SmokeTest_TC2"> <!-- add test name such as RT, sanity -->
+		<classes>
+			<class name ="com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest"></class>
+		</classes>
+	</test>
+	
+</suite>

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
+import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class ManageDeliveryBoyPage {
 	WebDriver driver;
@@ -52,6 +53,7 @@ public class ManageDeliveryBoyPage {
 			}
 		}
 		WebElement deliveryBoytobeEdited= driver.findElement(By.xpath("//table[@class='table table-bordered table-hover table-sm']//tbody/tr["+index+"]/td[8]//a[1]"));		
+		WaitUtility.waitForButtonTobeClickable(driver, deliveryBoytobeEdited);
 		pageUtility.scrollAndClick(deliveryBoytobeEdited);
 	}
 }

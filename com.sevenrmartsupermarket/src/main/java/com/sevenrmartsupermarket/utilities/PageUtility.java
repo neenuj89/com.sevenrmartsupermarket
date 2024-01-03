@@ -16,7 +16,7 @@ public class PageUtility {
 	JavascriptExecutor js;
 
 	public PageUtility(WebDriver driver) {
-		driver = this.driver;
+		this.driver=driver;
 	}
 
 	public void mouseMoveTo(WebElement element) {

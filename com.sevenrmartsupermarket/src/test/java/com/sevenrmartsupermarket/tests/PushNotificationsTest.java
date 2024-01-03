@@ -15,7 +15,7 @@ public class PushNotificationsTest extends Base{
 	String actualAlertMessage;
 	String expectedAlertMessage="×\n"+ "Alert!\n"+ "Message send successfully";
 	boolean resetFlag;
-	@Test
+	@Test(groups={"smoke","regresion"})
 	public void verifySubmitPushNotification() {
 		pushNotificationPage=new PushNotificationsPage(driver);
 		pushNotificationPage.launchPushNotification();
@@ -28,7 +28,7 @@ public class PushNotificationsTest extends Base{
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 		
 	}
-	@Test
+	@Test(groups={"smoke","regresion"})
 	public void verifyResetPushNotification() {		
 		pushNotificationPage=new PushNotificationsPage(driver);
 		pushNotificationPage.launchPushNotification();
@@ -37,7 +37,7 @@ public class PushNotificationsTest extends Base{
 		Assert.assertTrue(resetFlag);
 		
 	}
-	@Test
+	@Test(groups="regresion")
 	public void verifyResetPushNotificationValueEntered() {
 		pushNotificationPage=new PushNotificationsPage(driver);
 		pushNotificationPage.launchPushNotification();

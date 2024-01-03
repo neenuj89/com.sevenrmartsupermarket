@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="CrossBrowser" thread-count="5" parallel="tests"> <!-- parallel-test to run multiple test parallely, parallel=class to run classes parallely -->
+	<listeners>
+	<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="ChromeTest">
+	 <!-- add test name such as RT, sanity -->
+	<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.PushNotificationsTest"></class> 
+		</classes>
+	</test>
+	<test name="FireFoxTest"> <!-- add test name such as RT, sanity -->
+	<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name ="com.sevenrmartsupermarket.tests.PushNotificationsTest"></class>
+		</classes>
+	</test>
+	<test name="SafariTest"> <!-- add test name such as RT, sanity -->
+	<parameter name="browser" value="safari"></parameter>
+		<classes>
+			<class name ="com.sevenrmartsupermarket.tests.PushNotificationsTest"></class>
+		</classes>
+	</test>
+	<test name="EdgeTest"> <!-- add test name such as RT, sanity -->
+	<parameter name="browser" value="edge"></parameter>
+		<classes>
+			<class name ="com.sevenrmartsupermarket.tests.PushNotificationsTest"></class>
+		</classes>
+	</test>
+	
+</suite>

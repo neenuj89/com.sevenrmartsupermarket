@@ -4,9 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
+import com.sevenrmartsupermarket.base.ValidUserLogins;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.utilities.ExcelRead;
+
 
 
 
@@ -17,7 +19,7 @@ public class LoginTest extends Base{
 	ExcelRead excelRead;
 	String actualProfileName;
 	String expectedProfileName;
-	@Test
+	@Test(groups = "regression")
 	public void verifyLogin() {
 		loginPage= new LoginPage(driver);
 		homepage =new HomePage(driver);
@@ -29,7 +31,7 @@ public class LoginTest extends Base{
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 		
 	}
-	@Test
+	@Test(groups = "regresion")
 	public void verifyLoginUsingExcel() {
 		loginPage= new LoginPage(driver);
 		homepage =new HomePage(driver);
@@ -43,7 +45,14 @@ public class LoginTest extends Base{
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 		
 	}
-	
-	
-
+	@Test(groups = "smoke",dataProvider = "Valid User Credentials",dataProviderClass = ValidUserLogins.class)
+	public void verifyLoginUsingDataProvider(String username, String password) {
+		loginPage= new LoginPage(driver);
+		homepage =new HomePage(driver);
+		loginPage.login(username, password);
+		actualProfileName=homepage.getActualProfileName();
+		expectedProfileName=homepage.getExpectedProfileName(username);
+		Assert.assertEquals(actualProfileName, expectedProfileName);
+		
+	}
 }
