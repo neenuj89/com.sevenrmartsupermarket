@@ -54,6 +54,6 @@ public class ManageDeliveryBoyPage {
 		}
 		WebElement deliveryBoytobeEdited= driver.findElement(By.xpath("//table[@class='table table-bordered table-hover table-sm']//tbody/tr["+index+"]/td[8]//a[1]"));		
 		WaitUtility.waitForButtonTobeClickable(driver, deliveryBoytobeEdited);
-		pageUtility.scrollAndClick(deliveryBoytobeEdited);
+		pageUtility.scrollAndClick(deliveryBoytobeEdited);//
 	}
 }
