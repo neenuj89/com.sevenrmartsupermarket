@@ -3,6 +3,7 @@ package com.sevenrmartsupermarket.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.PushNotificationsPage;
 import com.sevenrmartsupermarket.utilities.ExcelRead;
@@ -15,6 +16,7 @@ public class PushNotificationsTest extends Base{
 	String actualAlertMessage;
 	String expectedAlertMessage="×\n"+ "Alert!\n"+ "Message send successfully";
 	boolean resetFlag;
+	Faker faker = new Faker();
 	@Test(groups={"smoke","regresion"})
 	public void verifySubmitPushNotification() {
 		pushNotificationPage=new PushNotificationsPage(driver);

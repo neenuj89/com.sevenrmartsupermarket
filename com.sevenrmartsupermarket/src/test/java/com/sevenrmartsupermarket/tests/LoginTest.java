@@ -3,8 +3,10 @@ package com.sevenrmartsupermarket.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.base.ValidUserLogins;
+import com.sevenrmartsupermarket.listeners.RetryAnalyzer;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.utilities.ExcelRead;
@@ -19,15 +21,18 @@ public class LoginTest extends Base{
 	ExcelRead excelRead;
 	String actualProfileName;
 	String expectedProfileName;
-	@Test(groups = "regression")
+	Faker faker = new Faker();
+	@Test(groups = "regression", retryAnalyzer = RetryAnalyzer.class)
 	public void verifyLogin() {
 		loginPage= new LoginPage(driver);
 		homepage =new HomePage(driver);
+		String userName = faker.name().username();
+		
 		//loginPage.login();///credentials will be fetched from config.properties
 		loginPage.login("jithu"," hghg");	//manually credentials are provided
 		actualProfileName=homepage.getActualProfileName();
 		//expectedProfileName=homepage.getExpectedProfileName();//expected value will be fetched from config 
-		expectedProfileName=homepage.getExpectedProfileName("jithu");
+		expectedProfileName=homepage.getExpectedProfileName("jithu123");
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 		
 	}
@@ -45,7 +50,7 @@ public class LoginTest extends Base{
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 		
 	}
-	@Test(groups = "smoke",dataProvider = "Valid User Credentials",dataProviderClass = ValidUserLogins.class)
+	@Test(groups = "smoke",dataProvider = "User credential_Excel",dataProviderClass = ValidUserLogins.class)
 	public void verifyLoginUsingDataProvider(String username, String password) {
 		loginPage= new LoginPage(driver);
 		homepage =new HomePage(driver);
@@ -55,4 +60,5 @@ public class LoginTest extends Base{
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 		
 	}
+	
 }

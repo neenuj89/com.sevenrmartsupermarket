@@ -14,7 +14,7 @@ public class ManageDeliveryBoyTest extends Base{
 	public void launchManageDeliveryBoy() {
 		manageDeliveryBoyPage=new ManageDeliveryBoyPage(driver);
 		manageDeliveryBoyPage.launchManageDeliveryBoy();
-		manageDeliveryBoyPage.editDeliveryBoy("Shameer123");
+		manageDeliveryBoyPage.editDeliveryBoy("Shameer");
 	}
 
 }
